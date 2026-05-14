@@ -39,9 +39,7 @@ public class HabitacionController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<HabitacionDTO> actualizarHabitacion(
-            @PathVariable Long id, 
-            @Valid @RequestBody HabitacionDTO dto) {
+    public ResponseEntity<HabitacionDTO> actualizarHabitacion(@PathVariable Long id, @Valid @RequestBody HabitacionDTO dto) {
         
         HabitacionDTO habitacionActualizada = service.actualizarHabitacion(id, dto);
         return new ResponseEntity<>(habitacionActualizada, HttpStatus.OK);
