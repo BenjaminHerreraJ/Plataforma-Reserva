@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,12 +46,4 @@ public class HabitacionController {
         HabitacionDTO habitacionActualizada = service.actualizarHabitacion(id, dto);
         return new ResponseEntity<>(habitacionActualizada, HttpStatus.OK);
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarHabitacion(@PathVariable Long id) {
-        service.eliminarHabitacion(id);
-        // Retornamos 204 No Content, que es el estándar HTTP correcto para un DELETE exitoso
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT); 
-    }
-
 }
