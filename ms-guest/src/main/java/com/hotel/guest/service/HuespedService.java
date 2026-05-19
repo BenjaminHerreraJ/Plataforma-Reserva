@@ -37,5 +37,10 @@ public class HuespedService {
         return repo.findAll().stream().map(mapper::toDTO).collect(Collectors.toList());
     }
 
+    public HuespedDTO buscarPorId(Long id) {
+        return repo.findById(id)
+                .map(mapper::toDTO)
+                .orElseThrow(() -> new RuntimeException("Huésped no encontrado"));
+    }
     
 }
