@@ -9,6 +9,16 @@
             "projectName": "guest",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsRoomApplication<ms-room>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.hotel.room.MsRoomApplication",
+            "projectName": "ms-room",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
