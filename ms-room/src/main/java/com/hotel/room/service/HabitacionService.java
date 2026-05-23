@@ -105,4 +105,16 @@ public class HabitacionService {
             throw new RuntimeException("No se pudo eliminar la habitación. Puede que tenga dependencias.");
         }
     }
+
+    public HabitacionDTO obtenerPorId(Long id) {
+        log.info("Consultando la habitación con ID: {}", id);
+        
+        Habitacion habitacion = repo.findById(id)
+                .orElseThrow(() -> {
+                    log.error("No se encontró la habitación con ID {}", id);
+                    return new RuntimeException("Habitación no encontrada");
+                });
+                
+        return mapper.toDTO(habitacion);
+    }
 }

@@ -26,6 +26,13 @@ public class HabitacionController {
 
     private final HabitacionService service;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<HabitacionDTO> obtenerHabitacionPorId(@PathVariable Long id) {
+        // Asegúrate de que tu HabitacionService tenga este método implementado (puede llamarse obtenerPorId o buscarPorId)
+        HabitacionDTO habitacion = service.obtenerPorId(id); 
+        return new ResponseEntity<>(habitacion, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<HabitacionDTO> crearhabitacion(@Valid @RequestBody HabitacionDTO dto) {
         HabitacionDTO nuevaHabitacion = service.crearHabitacion(dto);
@@ -44,4 +51,6 @@ public class HabitacionController {
         HabitacionDTO habitacionActualizada = service.actualizarHabitacion(id, dto);
         return new ResponseEntity<>(habitacionActualizada, HttpStatus.OK);
     }
+
+    
 }
