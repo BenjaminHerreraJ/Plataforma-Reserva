@@ -1,6 +1,8 @@
 package com.hotel.booking.service;
 
 import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -69,5 +71,12 @@ public class ReservaService {
         log.info("Reserva ID {} creada exitosamente", guardada.getId());
 
         return mapper.toDTO(guardada);
+    }
+
+    public List<ReservaDTO> listarTodas(){
+        log.info("Consultando el historia de reservas");
+        return repository.findAll().stream()
+            .map(mapper::toDTO)
+            .collect(Collectors.toList());
     }
 }
