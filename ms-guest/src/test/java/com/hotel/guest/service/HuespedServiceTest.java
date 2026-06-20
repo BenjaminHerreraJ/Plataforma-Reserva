@@ -8,9 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import static org.mockito.ArgumentMatchers.any;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -20,7 +24,7 @@ import com.hotel.guest.dto.HuespedDTO;
 import com.hotel.guest.mapper.HuespedMapper;
 import com.hotel.guest.model.Huesped;
 import com.hotel.guest.repository.HuespedRepository;
-
+@ExtendWith(MockitoExtension.class)
 public class HuespedServiceTest {
 
     @Mock

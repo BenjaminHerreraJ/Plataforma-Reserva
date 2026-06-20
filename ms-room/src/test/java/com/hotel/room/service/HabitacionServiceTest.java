@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -15,12 +16,13 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.hotel.room.dto.HabitacionDTO;
 import com.hotel.room.mapper.HabitacionMapper;
 import com.hotel.room.model.Habitacion;
 import com.hotel.room.repository.HabitacionRepository;
-
+@ExtendWith(MockitoExtension.class)
 public class HabitacionServiceTest {
     
     @Mock

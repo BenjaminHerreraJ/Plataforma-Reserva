@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import org.mockito.InjectMocks;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.hotel.booking.client.HabitacionCliente;
 import com.hotel.booking.client.HabitacionDTO;
@@ -28,7 +30,7 @@ import com.hotel.booking.model.Reserva;
 import com.hotel.booking.repository.ReservaRepository;
 
 import feign.FeignException;
-
+@ExtendWith(MockitoExtension.class)
 public class ReservaServiceTest {
     @Mock
     private ReservaRepository repository;
