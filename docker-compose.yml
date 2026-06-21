@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+
+  ms-eureka:
+    build: ./eureka
+    container_name: ms-eureka
+    ports:
+      - "8761:8761"
+
+  ms-gateway:
+    build: ./gateway
+    container_name: ms-gateway
+    ports:
+      - "8090:8090"
+    depends_on:
+      - ms-eureka
+
+  ms-room:
+    build: ./ms-room
+    container_name: ms-room
+    ports:
+      - "8081:8081"
+    depends_on:
+      - ms-eureka
+
+  ms-guest:
+    build: ./ms-guest
+    container_name: ms-guest
+    ports:
+      - "8082:8082"
+    depends_on:
+      - ms-eureka
+
+  ms-booking:
+    build: ./ms-booking
+    container_name: ms-booking
+    ports:
+      - "8083:8083"
+    depends_on:
+      - ms-eureka
+
+networks:
+  default:
+    name: microservicios-network

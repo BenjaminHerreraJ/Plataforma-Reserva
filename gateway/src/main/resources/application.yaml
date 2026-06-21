@@ -1,0 +1,28 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: ms-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ms-room
+          uri: lb://MS-ROOM
+          predicates:
+            - Path=/api/v1/habitaciones/**
+
+        - id: ms-guest
+          uri: lb://MS-GUEST
+          predicates:
+            - Path=/api/v1/huespedes/**
+
+        - id: ms-booking
+          uri: lb://MS-BOOKING
+          predicates:
+            - Path=/api/v1/reservas/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

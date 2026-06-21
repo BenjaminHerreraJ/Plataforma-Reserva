@@ -1,9 +1,9 @@
-package com.hotel.guest;
+package com.ms.eureka;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GuestApplicationTests {
+class EurekaApplicationTests {
 
 	//@Test
 	//void contextLoads() {
